@@ -95,7 +95,7 @@
                 <div class="uk-margin">
                     <label>Birthday: </label><input class="uk-input" type="date" name="dob" required>
                 </div>
-                <button type="submit" value="next">Next</button>
+                <button class="uk-button" type="submit" value="next">Next</button>
             </form>
         </div>
 
@@ -103,43 +103,43 @@
             <h3 class="uk-margin">What's your style?</h3>
             <form id="style" required>
                 <div class="uk-margin">
-                    <input type="radio" name="casual" title="casual"><label>Casual</label>
+                    <input class="uk-radio" type="radio" name="casual" title="casual"><label>Casual</label>
                 </div>
                 <div class="uk-margin">
-                    <input type="radio" name="sporty"><label>Sporty</label>
+                    <input class="uk-radio" type="radio" name="sporty"><label>Sporty</label>
                 </div>
                 <div class="uk-margin">
-                    <input type="radio" name="formal"><label>Formal</label>
+                    <input class="uk-radio" type="radio" name="formal"><label>Formal</label>
                 </div>
                 <div class="uk-margin">
-                    <input type="radio" name="edgy"><label>Edgy</label>
+                    <input class="uk-radio" type="radio" name="edgy"><label>Edgy</label>
                 </div>
-                <button type="submit" value="next-next">Next</button>
+                <button class="uk-button" type="submit" value="next-next">Next</button>
             </form>
         </div>
 
         <div class="uk-fieldset">
             <h3 class="uk-margin"> Awesome! please tell me more </h3>
-            <form id="familiar">
+            <form id="location">
                 <div class="uk-margin">
-                    <label>Address: </label><input type="text" name="address" required>
+                    <input type="text" class="uk-input" placeholder="Country" name="country" required> <!--this should start to autofill with a list of countries as you type--> 
                 </div>
                 <div class="uk-margin">
-                    <label>Country: </label><input type="text" name="country" required> <!--this should start to autofill with a list of countries as you type--> 
+                    <input type="text" placeholder="Address" class="uk-input" name="address" required>
                 </div>
                 <div class="uk-margin">
-                    <label>State: </label><input type="text" name="state" required>      <!--change this to options later that automatically loads a list of states in a country-->
+                    <input type="text" class="uk-input" placeholder="State" name="state" required>      <!--change this to options later that automatically loads a list of states in a country-->
                 </div>
                 <div class="uk-margin">
-                    <label>City: </label><input type="text" name="city" required>         <!--change this to options later that automatically loads a list of cities in a state-->
+                    <input class="uk-input" placeholder="City" type="text" name="city" required>         <!--change this to options later that automatically loads a list of cities in a state-->
                 </div>
                 <div class="uk-margin">
-                    <label>Zip: </label><input type="integer" name="zip">
+                    <input placeholder="Zip" class="uk-input" type="integer" name="zip">
                 </div>
                 <div class="uk-margin">
-                    <label>Phone Number: <small>(optional)</small> </label><input type="integer" name="phone">
+                    <input type="integer" placeholder="Phone Number (optional)" class="uk-input" name="phone">
                 </div>
-                <button type="submit" value="next-again">Next</button>
+                <button class="uk-button" type="submit" value="next-again">Next</button>
             </form>
         </div>
 
@@ -151,20 +151,20 @@
                     <label>Name on Card: </label><input type="text" name="noc" required>
                 </div>
                 <div class="uk-margin">
-                    <label>Billing Adress: </label><input type="text" name="billing" required> <br />
-                    <input type="checkbox"><small>Click this if mailing address is the same as billing address</small>
+                    <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required> <br />
+                    <input type="checkbox" class="uk-checkbox"><small>Click this if mailing address is the same as billing address</small>
                 </div>
                 <div class="uk-margin">
-                    <label>Card Number: </label><input type="integer" name="cardNo" required>
+                    <input class="uk-input" placeholder="Card Number" type="integer" name="cardNo" required>
                 </div>
                 <div class="uk-margin">
-                    <label>Exp. Date: </label><input type="integer" name='exp-date' required>
+                   <input class="uk-input" placeholder="Exp. Date" type="date" name='exp-date' required>
                 </div>
                 <div class="uk-margin">
-                    <label> CCV: </label><input type="integer" name='ccv' required>
+                    <input class="uk-input" type="integer" name='ccv' placeholder="CCV" required>
                 </div>
                 <div class="uk-margin ">
-                    <input type="checkbox" name="consent"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
+                    <input type="checkbox" class="uk-checkbox" name="consent"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
                 </div>
                 <button type="submit" value="submit">Submit</button>
             </form>
