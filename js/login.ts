@@ -67,10 +67,23 @@ export class login {
     }
 
 
-
     // throw sucess everytime a field is filled 
     success(): HTMLStyleElement {
 
+    }
+
+
+    //autopopulate country
+    Country(): HTMLStyleElement {
+
+    }
+
+    State(): HTMLStyleElement {
+
+    }
+
+    Zip(): HTMLElement {
+        
     }
 
     submit() {
