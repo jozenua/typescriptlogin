@@ -54,6 +54,7 @@
                 <li>
                     <div class="uk-padding-small" uk-icon="home"></div>
                     <div class="uk-padding-small" uk-icon="cart"></div>
+                    
                 </li>
                 <li class="uk-active uk-text-center uk-nav-header"><a href="#">Mens</a></li>
                 <li class="uk-nav-header uk-active uk-text-center uk-nav-divider"><a href="#">Womens</a></li>
@@ -68,8 +69,8 @@
     </div>
 
 
-    <div class="uk-section">
-        <div class="uk-container uk-align-center">
+    <div class="uk-section uk-align-center">
+        <div class="uk-container uk-container-medium">
         <div class="uk-fieldset">
             <legend class="uk-margin uk-legend"> Let's get to know you </legend>
             <form id="names"> 
@@ -97,6 +98,8 @@
                 </div>
                 <button class="uk-button" type="submit" value="next">Next</button>
             </form>
+        </div>
+        </div>
         </div>
 
         <div class="uk-fieldset">
@@ -148,7 +151,7 @@
             <h3> Excellent web security means you can trust us with your payment info  </h3>
             <form name="card">
                 <div class="uk-margin">
-                    <label>Name on Card: </label><input type="text" name="noc" required>
+                    <input type="text" name="noc" placeholder="Name On Card" class="uk-input"  required>
                 </div>
                 <div class="uk-margin">
                     <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required> <br />
@@ -170,8 +173,7 @@
             </form>
 
         </div>
-        </div>
-    </div>
+        
 
 </main>
 <script src="js/uikit.min.js"></script>
