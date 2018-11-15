@@ -6,14 +6,16 @@
     <title>Squiggly | Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="images/shink.otf" />
 </head>
 <body>
  
-<main>
+<main class="uk-background uk-background-cover uk-light" style="background-image: url(images/first.jpg);">
 
+<div class="uk-overlay uk-overlay-primary">
     <!-- Header and membership area-->
-    <div class="uk-flex uk-light uk-background uk-background-secondary uk-padding">
-        <h1 class="uk-heading-primary uk-align-center">Squiggly</h1>
+    <div class="uk-flex uk-light uk-padding">
+        <h1 class="uk-heading-primary uk-align-center"><a class="uk-link-reset" href="home.html">Squiggly</a></h1>
         <div class="uk-flex uk-flex-between uk-position-top-right uk-visible@s" uk-grid>
             <div class="uk-padding-small">Login</div>
             <div class="uk-padding-small">Register</div>
@@ -22,7 +24,7 @@
     </div>
 
 <!--regular nav-->
-    <nav class="uk-navbar-container uk-navbar-transparent uk-margin-medium uk-visible@s" uk-navbar>
+    <nav class="uk-navbar-container uk-navbar-transparent uk-margin-small uk-visible@s" uk-navbar>
 
         <div class="uk-navbar-center">
 
@@ -69,112 +71,162 @@
     </div>
 
 
-    <div class="uk-section uk-align-center">
-        <div class="uk-container uk-container-medium">
-        <div class="uk-fieldset">
-            <legend class="uk-margin uk-legend"> Let's get to know you </legend>
-            <form id="names"> 
-                <div class="uk-margin">
-                    <input class="uk-input" placeholder="First Name" type="text" name="fname" required>
-                </div>
-                <div class="uk-margin">
-                   <input class="uk-input" placeholder="Last Name" type="text" name="lname" required>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" placeholder="Username" type="text" name="user" required>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" placeholder="Email" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                </div>
-                <div class="uk-margin">
-                    <small></small>Password must contain at least one number and one uppercase letter</small><input class="uk-input" type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->     
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" type="password" name="password" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                    <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->
-                </div>
-                <div class="uk-margin">
-                    <label>Birthday: </label><input class="uk-input" type="date" name="dob" required>
-                </div>
-                <button class="uk-button" type="submit" value="next">Next</button>
-            </form>
-        </div>
-        </div>
-        </div>
-
-        <div class="uk-fieldset">
-            <h3 class="uk-margin">What's your style?</h3>
-            <form id="style" required>
-                <div class="uk-margin">
-                    <input class="uk-radio" type="radio" name="casual" title="casual"><label>Casual</label>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-radio" type="radio" name="sporty"><label>Sporty</label>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-radio" type="radio" name="formal"><label>Formal</label>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-radio" type="radio" name="edgy"><label>Edgy</label>
-                </div>
-                <button class="uk-button" type="submit" value="next-next">Next</button>
-            </form>
-        </div>
-
-        <div class="uk-fieldset">
-            <h3 class="uk-margin"> Awesome! please tell me more </h3>
-            <form id="location">
-                <div class="uk-margin">
-                    <input type="text" class="uk-input" placeholder="Country" name="country" required> <!--this should start to autofill with a list of countries as you type--> 
-                </div>
-                <div class="uk-margin">
-                    <input type="text" placeholder="Address" class="uk-input" name="address" required>
-                </div>
-                <div class="uk-margin">
-                    <input type="text" class="uk-input" placeholder="State" name="state" required>      <!--change this to options later that automatically loads a list of states in a country-->
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" placeholder="City" type="text" name="city" required>         <!--change this to options later that automatically loads a list of cities in a state-->
-                </div>
-                <div class="uk-margin">
-                    <input placeholder="Zip" class="uk-input" type="integer" name="zip">
-                </div>
-                <div class="uk-margin">
-                    <input type="integer" placeholder="Phone Number (optional)" class="uk-input" name="phone">
-                </div>
-                <button class="uk-button" type="submit" value="next-again">Next</button>
-            </form>
-        </div>
 
 
-        <div class="uk-fieldset">
-            <h3> Excellent web security means you can trust us with your payment info  </h3>
-            <form name="card">
-                <div class="uk-margin">
-                    <input type="text" name="noc" placeholder="Name On Card" class="uk-input"  required>
-                </div>
-                <div class="uk-margin">
-                    <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required> <br />
-                    <input type="checkbox" class="uk-checkbox"><small>Click this if mailing address is the same as billing address</small>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" placeholder="Card Number" type="integer" name="cardNo" required>
-                </div>
-                <div class="uk-margin">
-                   <input class="uk-input" placeholder="Exp. Date" type="date" name='exp-date' required>
-                </div>
-                <div class="uk-margin">
-                    <input class="uk-input" type="integer" name='ccv' placeholder="CCV" required>
-                </div>
-                <div class="uk-margin ">
-                    <input type="checkbox" class="uk-checkbox" name="consent"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
-                </div>
-                <button type="submit" value="submit">Submit</button>
-            </form>
 
+    <!--Don't use uikit's slider for stuff like this ever again-->
+
+
+
+
+    <section class="uk-position-relative" uk-slider="center: true">
+        <ul class="uk-slider-items uk-child-width-1-1 uk-grid">
+            
+            <li>
+        <div class="uk-section uk-align-center">
+            <div class="uk-container uk-container-xsmall">
+                <div class="uk-fieldset">
+                    <legend class="uk-margin uk-legend"> Let's get to know you </legend>
+                    <form id="names"> 
+                        <div class="uk-margin">
+                            <input class="uk-input" placeholder="First Name" type="text" name="fname" required maxlength="20" autofocus>
+                        </div>
+                        <div class="uk-margin">
+                        <input class="uk-input" placeholder="Last Name" type="text" name="lname" required maxlength="40">
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input" placeholder="Username" type="text" name="user" required>
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input" placeholder="Email" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        </div>
+                        <div class="uk-margin">
+                            <small></small>Password must contain at least one number and one uppercase letter</small><input class="uk-input" type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->     
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input" type="password" name="password" placeholder="Confirm Password" required>
+                            <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->
+                        </div>
+                        <div class="uk-margin">
+                            <label>Birthday: </label><input class="uk-input" type="date" name="dob" required>
+                        </div>
+                        <a class="uk-button uk-button-default uk-width-small uk-align-center uk-text-center" href="#2"  type="submit">Next</a>
+                    </form>
+                </div>
+            </div>
         </div>
+        </li>
+
+        <li>
+        <div class="uk-section uk-align-center" id="2">
+            <div class="uk-container uk-container-medium">
+                <div class="uk-fieldset">
+                    <h3 class="uk-margin">What's your style?</h3>
+
+                    <form id="style" required>
+                        <div class="uk-flex uk-flex-row uk-flex-around uk-child-width-1-1 uk-child-width-1-4@s uk-padding" uk-grid>
+                            <div >
+                                <input class="uk-radio" type="radio" name="style" value="casual"><label>Casual</label>
+                            </div>
+                            <div>
+                                <input class="uk-radio" type="radio" name="style" value="sporty"><label>Sporty</label>
+                            </div>
+                            <div>
+                                <input class="uk-radio" type="radio" name="style" value="formal"><label>Formal</label>
+                            </div>
+                            <div>
+                                <input class="uk-radio" type="radio" name="style" value="edgy"><label>Edgy</label>
+                            </div>
+                        </div>
+                        
+                        <div class="uk-flex uk-flex-row" uk-grid>
+                            <a class="uk-align-left uk-margin-large-top" uk-slider-item="previous" href="#"> Back </a>
+                            <a class="uk-button uk-button-default uk-width-small uk-align-center uk-text-center" href="#3" type="submit">Next</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </li>
         
+        <li>
+        <div class="uk-section uk-align-center" id="3">
+            <div class="uk-container uk-container-medium">
+                <div class="uk-fieldset">
+                    <h3 class="uk-margin"> Awesome! please tell me more </h3>
+                    <form id="location">
+                        <div class="uk-margin">
+                            <input type="text" class="uk-input" placeholder="Country" name="country" required autofocus> <!--this should start to autofill with a list of countries as you type--> 
+                        </div>
+                        <div class="uk-margin">
+                            <input type="text" placeholder="Address" class="uk-input" name="address" required autocomplete="on">
+                        </div>
+                        <div class="uk-margin">
+                            <input type="text" class="uk-input" placeholder="State" name="state" required autocomplete="on">      <!--change this to options later that automatically loads a list of states in a country-->
+                        </div>
+                        <div class="uk-margin">
+                            <input class="uk-input" placeholder="City" type="text" name="city" required autocomplete="on">         <!--change this to options later that automatically loads a list of cities in a state-->
+                        </div>
+                        <div class="uk-margin">
+                            <input placeholder="Zip" class="uk-input" type="integer" name="zip" autocomplete="on">
+                        </div>
+                        <div class="uk-margin">
+                            <input type="integer" placeholder="Phone Number (optional)" class="uk-input" name="phone" autocomplete="on">
+                        </div>
+                        <div class="uk-flex uk-flex-row" uk-grid>
+                            <a class="uk-align-left uk-margin-large-top" uk-slider-item="previous" href="#"> Back </a>
+                            <a class="uk-button uk-button-default uk-width-small uk-align-center uk-text-center" href="#4" type="submit">Next</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </li>
 
+        <li>
+        <div class="uk-section uk-align-center" id="4">
+            <div class="uk-container uk-container-medium">
+                <div class="uk-fieldset">
+                    <h3> Excellent web security means you can trust us with your payment info  </h3>
+                    <form name="card">
+
+                        <div class="uk-margin">
+                            <input type="text" name="noc" placeholder="Name On Card" class="uk-input"  required autofocus autocomplete="on">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required autocomplete="on"> <br />
+                            <input type="checkbox" class="uk-checkbox"><small>Click this if mailing address is the same as billing address</small>
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" placeholder="Card Number" type="integer" name="cardNo" require autocomplete="on">
+                        </div>
+
+                        <div class="uk-margin">
+                        <input class="uk-input" placeholder="Exp. Date" type="date" name='exp-date' required autocomplete="on">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="integer" name='ccv' placeholder="CCV" required autocomplete="on">
+                        </div>
+
+                        <div class="uk-margin ">
+                            <input type="checkbox" class="uk-checkbox" name="consent"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
+                        </div>
+
+                        <div class="uk-flex uk-flex-row" uk-grid>
+                            <a class="uk-align-left uk-margin-large-top"  uk-slider-item="previous" href="#"> Back </a>
+                            <button class="uk-button uk-button-default  uk-align-center" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+        </li>
+        </ul>
+        </div>
+    </section>
 </main>
 <script src="js/uikit.min.js"></script>
 <script src="js/uikit-icons.min.js"></script>
