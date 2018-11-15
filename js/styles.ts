@@ -1,3 +1,3 @@
-class transitionBackgrounds {
-    // class to handle background transitions
+class animations {
+    // class to handle all aniamtions and transitions
 }
