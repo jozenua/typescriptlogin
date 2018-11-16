@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Squiggly | Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="images/shink.otf" />
+</head>
+
+<body>
+
+    <main class="uk-background uk-background-cover uk-light" style="background-image: url(images/first.jpg);">
+
+        <div class="uk-overlay uk-overlay-primary">
+            <!-- Header and membership area-->
+            <div class="uk-flex uk-light uk-padding">
+                <h1 class="uk-heading-primary uk-align-center"><a class="uk-link-reset" href="home.html">Squiggly</a></h1>
+                <div class="uk-flex uk-flex-between uk-position-top-right uk-visible@s" uk-grid>
+                    <div class="uk-padding-small">Login</div>
+                    <div class="uk-padding-small">Register</div>
+                    <div class="uk-padding-small" uk-icon="cart"></div>
+                </div>
+            </div>
+
+            <!--regular nav-->
+            <nav class="uk-navbar-container uk-navbar-transparent uk-margin-small uk-visible@s" uk-navbar>
+
+                <div class="uk-navbar-center">
+
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="#">Mens</a></li>
+                        <li class="uk-active"><a href="#">Womens</a></li>
+                        <li class="uk-active"><a href="#">Boys</a></li>
+                        <li class="uk-active"><a href="#">Girls</a></li>
+                        <li class="uk-active"><a href="#">Furniture and Decorations</a></li>
+                        <li class="uk-active"><a href="#">Deals</a></li>
+                        <li class="uk-active"><a href="#">Gallery</a></li>
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <div class="uk-navbar-right uk-position-top-right uk-hidden@s">
+                <ul class="uk-navbar-nav">
+                    <li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#collapse"></a></li>
+                </ul>
+            </div>
+
+            <!--Mobile Nav-->
+            <div id="collapse" data-uk-offcanvas="flip: true; overlay: false">
+                <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+                    <button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+                    <ul class="uk-nav uk-nav-default">
+                        <li>
+                            <div class="uk-padding-small" uk-icon="home"></div>
+                            <div class="uk-padding-small" uk-icon="cart"></div>
+
+                        </li>
+                        <li class="uk-active uk-text-center uk-nav-header"><a href="#">Mens</a></li>
+                        <li class="uk-nav-header uk-active uk-text-center uk-nav-divider"><a href="#">Womens</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Boys</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Girls</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Furniture and
+                                Decorations</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Deals</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Gallery</a></li>
+                        <li class="uk-active uk-nav-header uk-text-center uk-nav-divider"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>

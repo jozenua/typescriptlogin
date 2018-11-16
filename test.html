@@ -75,7 +75,7 @@
 
 
     <!--Don't use uikit's slider for stuff like this ever again-->
-
+    
 
 
 
@@ -87,7 +87,7 @@
             <div class="uk-container uk-container-xsmall">
                 <div class="uk-fieldset">
                     <legend class="uk-margin uk-legend"> Let's get to know you </legend>
-                    <form id="names"> 
+                    <form id="names" autocomplete="on"> 
                         <div class="uk-margin">
                             <input class="uk-input" placeholder="First Name" type="text" name="fname" required maxlength="20" autofocus>
                         </div>
@@ -104,7 +104,7 @@
                             <small></small>Password must contain at least one number and one uppercase letter</small><input class="uk-input" type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"> <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->     
                         </div>
                         <div class="uk-margin">
-                            <input class="uk-input" type="password" name="password" placeholder="Confirm Password" required>
+                            <input class="uk-input" type="password" name="second-password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                             <!--contains at least one number and one uppercase and lowercase letter, and at least 8 or more characters"-->
                         </div>
                         <div class="uk-margin">
@@ -154,24 +154,24 @@
             <div class="uk-container uk-container-medium">
                 <div class="uk-fieldset">
                     <h3 class="uk-margin"> Awesome! please tell me more </h3>
-                    <form id="location">
-                        <div class="uk-margin">
-                            <input type="text" class="uk-input" placeholder="Country" name="country" required autofocus> <!--this should start to autofill with a list of countries as you type--> 
+                    <form id="location" autocomplete="on">
+                        <div class="uk-margin" id="countries">
+                            <input type="text" class="uk-input" placeholder="Country" name="country" list="countries" required autofocus> <!--this should start to autofill with a list of countries as you type--> 
                         </div>
                         <div class="uk-margin">
-                            <input type="text" placeholder="Address" class="uk-input" name="address" required autocomplete="on">
+                            <input type="text" placeholder="Address" class="uk-input" name="address" required>
                         </div>
                         <div class="uk-margin">
-                            <input type="text" class="uk-input" placeholder="State" name="state" required autocomplete="on">      <!--change this to options later that automatically loads a list of states in a country-->
+                            <input type="text" class="uk-input" placeholder="State" name="state" required>      <!--change this to options later that automatically loads a list of states in a country-->
                         </div>
                         <div class="uk-margin">
-                            <input class="uk-input" placeholder="City" type="text" name="city" required autocomplete="on">         <!--change this to options later that automatically loads a list of cities in a state-->
+                            <input class="uk-input" placeholder="City" type="text" name="city" required>         <!--change this to options later that automatically loads a list of cities in a state-->
                         </div>
                         <div class="uk-margin">
-                            <input placeholder="Zip" class="uk-input" type="integer" name="zip" autocomplete="on">
+                            <input placeholder="Zip" class="uk-input" type="integer" name="zip">
                         </div>
                         <div class="uk-margin">
-                            <input type="integer" placeholder="Phone Number (optional)" class="uk-input" name="phone" autocomplete="on">
+                            <input type="integer" placeholder="Phone Number (optional)" class="uk-input" name="phone">
                         </div>
                         <div class="uk-flex uk-flex-row" uk-grid>
                             <a class="uk-align-left uk-margin-large-top" uk-slider-item="previous" href="#"> Back </a>
@@ -188,31 +188,31 @@
             <div class="uk-container uk-container-medium">
                 <div class="uk-fieldset">
                     <h3> Excellent web security means you can trust us with your payment info  </h3>
-                    <form name="card">
+                    <form id="card" autocomplete="on">
 
                         <div class="uk-margin">
-                            <input type="text" name="noc" placeholder="Name On Card" class="uk-input"  required autofocus autocomplete="on">
+                            <input type="text" name="noc" placeholder="Name On Card" class="uk-input"  required autofocus>
                         </div>
 
                         <div class="uk-margin">
-                            <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required autocomplete="on"> <br />
+                            <input type="text" class="uk-input" placeholder="Billing Address" name="billing" required> <br />
                             <input type="checkbox" class="uk-checkbox"><small>Click this if mailing address is the same as billing address</small>
                         </div>
 
                         <div class="uk-margin">
-                            <input class="uk-input" placeholder="Card Number" type="integer" name="cardNo" require autocomplete="on">
+                            <input class="uk-input" placeholder="Card Number" type="integer" name="cardNo" require>
                         </div>
 
                         <div class="uk-margin">
-                        <input class="uk-input" placeholder="Exp. Date" type="date" name='exp-date' required autocomplete="on">
+                        <input class="uk-input" placeholder="Exp. Date" type="date" name='exp-date' required>
                         </div>
 
                         <div class="uk-margin">
-                            <input class="uk-input" type="integer" name='ccv' placeholder="CCV" required autocomplete="on">
+                            <input class="uk-input" type="integer" name='ccv' placeholder="CCV" required>
                         </div>
 
                         <div class="uk-margin ">
-                            <input type="checkbox" class="uk-checkbox" name="consent"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
+                            <input type="checkbox" class="uk-checkbox" name="consent" value="yes"><label>By clicking this button you agree to our <a href="https://www.youtube.com/watch?v=J7GY1Xg6X20">terms of agreement</a></label>
                         </div>
 
                         <div class="uk-flex uk-flex-row" uk-grid>

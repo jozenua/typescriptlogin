@@ -1,0 +1,22 @@
+/**
+
+All this info can be found on w3schools
+
+ Auto-complete for <input>: 
+    autocomplete -> on/off
+    autofocus
+    form
+    formaction = is just the regular action attribute
+    formenctype = is usually one of three options that I can google but it doesnn't seem useful
+    formmethod = post or get
+    formnovalidate = does not validate form upon request
+    formtarget = changes the submit destination of the form from what's in post to another set target
+    height and width = sets the size of an input element with type image
+    list = makes a list out of a data list
+    min and max = sets minimum and maximum values for an input feild
+    multiple = allows for multiple inputs
+    pattern (regexp)
+    placeholder
+    required
+    step = can be used with number, range, date, datetime-local, month, time and week
+    */

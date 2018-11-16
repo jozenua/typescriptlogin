@@ -9,7 +9,7 @@
  */
 html {
   /* 1 */
-  font-family: 'shink', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
@@ -240,7 +240,7 @@ h5,
 h6,
 .uk-h6 {
   margin: 0 0 20px 0;
-  font-family: 'shink', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
   color: #333;
   text-transform: none;
@@ -513,6 +513,7 @@ a.uk-link-reset:hover,
 .uk-heading-primary {
   font-size: 3rem;
   line-height: 1.2;
+  font-family: 'shink', cursive;
 }
 /* Tablet landscape and bigger */
 @media (min-width: 900px) {
@@ -3879,7 +3880,7 @@ ul.uk-nav-sub {
   padding: 0 15px;
   /* 3 */
   font-size: 0.875rem;
-  font-family: 'shink', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   /* 4 */
   text-decoration: none;
 }
@@ -7844,7 +7845,7 @@ iframe.uk-cover {
  */
 .uk-logo {
   font-size: 1.5rem;
-  font-family: 'shink', cursive;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: #666;
   /* 1 */
   text-decoration: none;
@@ -11828,4 +11829,7 @@ iframe.uk-cover {
   h3 {
     page-break-after: avoid;
   }
+}
+.hook-heading-primary {
+  font-family: 'shink', cursive;
 }

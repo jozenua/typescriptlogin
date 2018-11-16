@@ -1,4 +1,3 @@
-//typescript login
 export{}
 
 class Startup {
@@ -74,6 +73,13 @@ console.log(Try());
     
     *unknown types ar like any but you can't access any properties of an unkown type without casting them when they 
     are being called
+
+    *window.location.assign(loads a new document), window.location.href(returns what's in the address bar at a certain time), window.location.port(returns the port that your webpage is hosted on)
+    * window.location.protocol(returns the web protocol of the page), window.location.pathname(returns pathname of the page)
+    * window.location.hostname(returns website host)
+    * 
+    *
+
             */
 
 
