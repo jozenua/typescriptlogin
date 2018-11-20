@@ -13,15 +13,20 @@
 <main class="uk-background uk-background-cover uk-light" style="background-image: url(images/first.jpg);">
 
 <div class="uk-overlay uk-overlay-primary">
+
+
+
     <!-- Header and membership area-->
     <div class="uk-flex uk-light uk-padding">
         <h1 class="uk-heading-primary uk-align-center"><a class="uk-link-reset" href="home.html">Squiggly</a></h1>
         <div class="uk-flex uk-flex-between uk-position-top-right uk-visible@s" uk-grid>
-            <div class="uk-padding-small">Login</div>
-            <div class="uk-padding-small">Register</div>
+            <div class="uk-padding-small"><a href="login.html">Login</a></div>
+            <div class="uk-padding-small"><a href="test.html">Register</a></div>
             <div class="uk-padding-small" uk-icon="cart"></div>
         </div>
     </div>
+
+
 
 <!--regular nav-->
     <nav class="uk-navbar-container uk-navbar-transparent uk-margin-small uk-visible@s" uk-navbar>
@@ -47,6 +52,8 @@
             <li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#collapse"></a></li>
         </ul>
     </div>
+
+
 
     <!--Mobile Nav-->
     <div id="collapse" data-uk-offcanvas="flip: true; overlay: false">
@@ -217,7 +224,7 @@
 
                         <div class="uk-flex uk-flex-row" uk-grid>
                             <a class="uk-align-left uk-margin-large-top"  uk-slider-item="previous" href="#"> Back </a>
-                            <button class="uk-button uk-button-default  uk-align-center" type="submit">Submit</button>
+                            <button class="uk-button uk-button-default  uk-align-center" type="submit" value="submit">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -230,7 +237,7 @@
 </main>
 <script src="js/uikit.min.js"></script>
 <script src="js/uikit-icons.min.js"></script>
-<script async defer src="main.js"></script>
+<script async defer src="js/main.js"></script>
 <script async src="test.js"></script>
 </body>
 </html>
