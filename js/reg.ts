@@ -1,4 +1,6 @@
 import { isNull } from "util";
+import { Module } from "module";
+
 
 /**
  * this is to practise form validation from scratch with TS
@@ -17,18 +19,20 @@ import { isNull } from "util";
 
 
 const bcrypt = require('bcrypt'); // password hashing api
-//const db  = require('../models'); this may require module.exports somewhere else
+//const db  = require('../models'); this will require module.exports somewhere else
 
+
+
+// class to handle login validation and authentication
 class register {
-    // class to handle login validation and authentication
-    private nameCategory: any = document.forms["names"];
+    private nameCategory: any = document.forms.namedItem('names');
     private name: string = this.nameCategory['fname'].value + ' ' + this.nameCategory['lname'].value;
     private dob: Date = this.nameCategory['dob'].value;
     private username: string = this.nameCategory['user'].value;
-    private password = bcrypt.hash(this.nameCategory['password'].value, 10);      // use bcrypt.compare('password', 10, function())
+    private password = bcrypt.hash(this.nameCategory['password'].value, 10); 
     private email: string = this.nameCategory['email'].value;
 
-    private familiar: any = document.forms["familiar"];
+    private familiar: any = document.forms.namedItem('location');
     private country: string = this.familiar['country'].value;
     private address: string = this.familiar['address'].value;
     private state: string = this.familiar['state'].value;
@@ -36,7 +40,7 @@ class register {
     private zip: number = this.familiar['zip'].value;
     private phone: number = this.familiar['phone'].value;
 
-    private card: any = document.forms["card"];
+    private card: any = document.forms.namedItem('card');
     private noc: string = this.card['noc'].value;                   //name on card
     private cardNo: number = this.card['cardNo'].value;
     private ccv: number = this.card['ccv'].value;
@@ -46,16 +50,26 @@ class register {
     private consent: HTMLDataElement = this.card['consent'].value;
 
 
-    private style: any = document.forms["style"];
+    private style: any = document.forms.namedItem('style');
     private userStyle = this.style.value;
 
-    // throw error if field is not filled out. Throw success if it is
-    fillCheck(): boolean {
-             
+    private forms = document.querySelector("form");
+
+
+
+    // red error outline on input if true, green success outline on input if false. Checking if people filled out feilds correctly
+
+    fillCheck():HTMLElement {
+        return this.forms.foreach(function(){
+            this.forms.querySelectorAll("input[type=text][value='']") || 
+            (this.forms.querySelectorAll("input[type=number][value='']") || typeof this.forms.querySelectorAll("input[type=number]").values !== "number") ||
+            this.forms.querySelectorAll("input[type=date][value='']") || this.forms.querySelector("input[type=radio][value='']")  ? 
+                this.forms.input.classList.add('uk-text-danger') && this.forms.setAttribute("novalidate", "") : 
+                this.forms.input.classList.add('uk-text-success') && this.forms.removeAttribute("novalidate") ()});
         }
 
-    // throws error if password does not match confirm password
-    passwordCheck(): boolean {
+    // throws error if password does not match confirm password. light up the compare password feild and throw error/sucess messgaes
+    passwordCheck()  {
         if (this.password) {
             return bcrypt.compare(this.nameCategory['second-password'], this.password, (err: Error, res:any) => {
                 if(err) {
@@ -68,103 +82,70 @@ class register {
     }
 
     // throws error if age is under 18
-    ageCheck(): boolean {
-        if(18 > 2018 - this.dob.getFullYear()) {
-            return false;
-        }
+    ageCheck(){ 
+       return 18 > 2018 - this.dob.getFullYear() ? false : true;
     }
 
 
-    //throws error if email is already in db
+    //throws error if email is already in db and says this email already exists
     emailCheck(): boolean {
         
     }
 
-    //throws error if username is in db
+    //throws error if username is in db and says this username already exists
     userCheck(): boolean {
-
+       
     }
 
-
-    // throw sucess everytime a field is filled 
-    success(): HTMLStyleElement {
-
-
-        this.nameCategory['fname'] === "" ? this.nameCategory['fname'].classList.add("uk-form-danger") : this.nameCategory['fname'].classList.add("uk-form-success");
-        this.nameCategory['lname'] === "" ? this.nameCategory['lname'].classList.add("uk-form-danger") : this.nameCategory['lname'].classList.add("uk-form-success");
-        this.dob === null ? this.nameCategory['dob'].classList.add("uk-form-danger") : this.nameCategory['dob'].classList.add("uk-form-success");
-        this.username === "" ? this.nameCategory['user'].classList.add('uk-form-danger') : this.nameCategory['user'].classList.add("uk-form-success");
-        this.email === "" ? this.nameCategory['email'].classList.add("uk-form-danger") : this.nameCategory['email'].classList.add("uk-form-success");
-        isNull(this.password) ? this.nameCategory['password'].classList.add("uk-form-danger") : this.nameCategory['password'].classList.add("uk-form-success");
-
-        this.country === "" ? this.familiar['country'].classList.add("uk-form-danger") : this.familiar['country'].classList.add("uk-form-success");
-        this.address === "" ? this.familiar['address'].classList.add("uk-form-danger") : this.familiar['address'].classList.add("uk-form-success");
-        this.state === "" ? this.familiar['state'].classList.add("uk-form-danger") : this.familiar['state'].classList.add("uk-form-success");
-        this.city === "" ? this.familiar['city'].classList.add("uk-form-danger") : this.familiar['city'].classList.add("uk-form-success");
-        isNull(this.zip) || isNaN(this.zip) ? this.familiar['zip'].classList.add("uk-form-danger") : this.familiar['zip'].classList.add("uk-form-success");
-
-        this.noc === "" ? this.card['noc'].classList.add("uk-form-danger") : this.card['noc'].classList.add("uk-form-success");
-        isNull(this.cardNo) && isNaN(this.cardNo) || isNaN(this.cardNo) ? this.card['cardNo'].classList.add("uk-form-danger") : this.card['cardNo'].classList.add("uk-form-success");
-        isNaN(this.ccv) || isNull(this.ccv) ? this.card['ccv'].classList.add("uk-form-danger") : this.card['ccv'].classList.add("uk-form-success");
-        this.cardExp === "" ? this.card['cardExp'].classList.add("uk-form-danger") : this.card['cardExp'].classList.add("uk-form-success");
-        this.billing === "" ? this.card['billing'].classList.add("uk-form-danger") : this.card['billing'].classList.add("uk-form-success");
-
-        isNull(this.userStyle) ? this.style.appendChild(this.style.createElement('p').classList.add('uk-text-danger').innerHTML = 'Please Select an option') : this.style.classList.add("uk-form-success");
-    }
-
-    //throw failure if feild has an error or is not filled
-    validate(): any {
-        this.fillCheck() ? document.querySelectorAll("form").setAttribute("novalidate") : document.querySelectorAll('form').setAttribute("validate");
+    fail() {
+        
     }
 
 
     //autopopulate country
-    Country(): HTMLStyleElement {
-        /*return document.getElementById("countries").appendChild(
-            `<datalist id="countries>
-                <option value="Albania">
-                <option value= "Algeria">
-                <option value= "Morrocco">
-                <option value= "China">
-                <option value= "Russia">
-                <option value= "United States">
-                <option value= "Ukraine">
-                <option value= "Nigeria">
-                <option value="Ivory Coast"
-            <datalist>`
-        );*/
+    Country(): HTMLElement {
+        let array = ['United States', 'North Korea', 'South Korea', 'Japan', 'England', 'Uzbekistan', 'Canada', 'Bolivia', 'Azerbaijan'];
 
-        const datalist = document.createElement('datalist').innerHTML = ` <option value="Albania">
-            <option value = "Algeria">
-            <option value= "Morrocco">
-            <option value= "China">
-            <option value= "Russia">
-            <option value= "United States">`;
+        const list = array.forEach(function (country) {
+            const list = document.createTextNode(country);
+            return document.createElement('option').appendChild(list); 
+        });
 
-        return document.getElementById('countries').append(datalist);
-
+        const country = document.getElementById("countries").appendChild(document.createElement("datalist").appendChild(list));
+        return country;
     }
 
+    validate() {
+            
+    }
   
 
     submit() {
         //does not submit if error persists(if any of the checks throws an error then do not submit. submit info otherwise)
         // compiles info into json
         // sends you to the user page.
-        const thisUser = {
-            name: this.name, dob: this.dob, country: this.country, address: this.address, email: this.email, noc: this.noc,
-            cardNo: this.cardNo, ccv: this.ccv, cardExp: this.cardExp, phone: this.phone, username: this.username,
-            password: this.password
-        }
-        let newUser = JSON.stringify(thisUser);
-        return fetch('user.html');
 
+        const update = {
+            previousid: -1,
+            id: () => update.previousid+=1,
+        }
+        
+        const thisUser = {
+            userNo: update.id(), name: this.name, dob: this.dob, country: this.country, address: this.address, email: this.email, noc: this.noc,
+            cardNo: this.cardNo, ccv: this.ccv, cardExp: this.cardExp, phone: this.phone, username: this.username,
+            password: this.password      }
+
+        update.previousid = thisUser.userNo; // at the end of the day this will call from the database id
+
+        let newUser = JSON.stringify(thisUser);
+
+        return fetch('../user.html'); 
     }
 
 }
 
 window.onload=()=> {
     const implement = new register;
-    implement.Country();
-    implement.passwordCheck();
+    implement.Country;
+    implement.passwordCheck; 
 }

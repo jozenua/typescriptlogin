@@ -1,5 +1,3 @@
-export{}
-
 class Startup {
     public static main(): void {
         console.log('Hello world');
@@ -7,6 +5,8 @@ class Startup {
     }
 }
 Startup.main();
+
+
 enum Color { red, green, blue };
 
 let c: Color = Color.green;
@@ -26,7 +26,7 @@ multitype= true;
 
 function example(num : number, text?: string, array?: Array<string>): boolean {
    // if you add a value in the beginning for any of these, it will be a default value 
-   // optional values must be the last to be declared
+   // optional values(the ones with the ?) must be the last to be declared
    return true;
 }
 
@@ -41,10 +41,12 @@ class Employee {
 
     greet(): void {console.log(`Good Morning ${this.employeeName}`);}
     
-}
+}  
 
 let employee = new Employee('Joohnn');
 employee.greet();
+
+module.exports.employee = Employee;
 
 let Try = () => 'response';
 
@@ -66,13 +68,18 @@ console.log(Try());
 
     *readLine(throws a prompt and accepts  a value) is used to read a console info
 
+    USING GENERICS 
+            |
+            v
+     function example<T>(input : T): T {
+        return input
+     }
 
-    *if a variable is defined but not instantiated at the beginning, its value can change as need be.
-    * Also if you sepearate types with a pipe you can pass multiple types to one variable e.g. let multitype: number
-    
-    
-    *unknown types ar like any but you can't access any properties of an unkown type without casting them when they 
-    are being called
+     function example<subClass extends ParentClass>(input: subClass): subClass {
+        return input;
+     }
+
+     compiler options : --out(changes output file name), --watch(comes at the end of the outputfile name)
 
     *window.location.assign(loads a new document), window.location.href(returns what's in the address bar at a certain time), window.location.port(returns the port that your webpage is hosted on)
     * window.location.protocol(returns the web protocol of the page), window.location.pathname(returns pathname of the page)
@@ -105,5 +112,3 @@ let testPromise = new Promise((resolve, reject) => {
 }).catch((err) => {
     console.log(new Error('not resolved'));
 });
-
-

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const util_1 = require("util");
 /**
  * this is to practise form validation from scratch with TS
  * this is going to be the Sign up part of the membership section for a luxury fashion brand named sqiggly
@@ -12,37 +11,45 @@ const util_1 = require("util");
 //during this project I learned that people have seperate password and regular info databases.
 // use this technique when testing things with vue
 const bcrypt = require('bcrypt'); // password hashing api
-//const db  = require('../models'); this may require module.exports somewhere else
+//const db  = require('../models'); this will require module.exports somewhere else
+// class to handle login validation and authentication
 class register {
     constructor() {
-        // class to handle login validation and authentication
-        this.nameCategory = document.forms["names"];
+        this.nameCategory = document.forms.namedItem('names');
         this.name = this.nameCategory['fname'].value + ' ' + this.nameCategory['lname'].value;
         this.dob = this.nameCategory['dob'].value;
         this.username = this.nameCategory['user'].value;
-        this.password = bcrypt.hash(this.nameCategory['password'].value, 10); // use bcrypt.compare('password', 10, function())
+        this.password = bcrypt.hash(this.nameCategory['password'].value, 10);
         this.email = this.nameCategory['email'].value;
-        this.familiar = document.forms["familiar"];
+        this.familiar = document.forms.namedItem('location');
         this.country = this.familiar['country'].value;
         this.address = this.familiar['address'].value;
         this.state = this.familiar['state'].value;
         this.city = this.familiar['city'].value;
         this.zip = this.familiar['zip'].value;
         this.phone = this.familiar['phone'].value;
-        this.card = document.forms["card"];
+        this.card = document.forms.namedItem('card');
         this.noc = this.card['noc'].value; //name on card
         this.cardNo = this.card['cardNo'].value;
         this.ccv = this.card['ccv'].value;
         this.cardExp = this.card['exp-date'].value;
         this.billing = this.card['billing'].value;
         this.consent = this.card['consent'].value;
-        this.style = document.forms["style"];
+        this.style = document.forms.namedItem('style');
         this.userStyle = this.style.value;
+        this.forms = document.querySelector("form");
     }
-    // throw error if field is not filled out. Throw success if it is
+    // red error outline on input if true, green success outline on input if false. Checking if people filled out feilds correctly
     fillCheck() {
+        return this.forms.foreach(function () {
+            this.forms.querySelectorAll("input[type=text][value='']") ||
+                (this.forms.querySelectorAll("input[type=number][value='']") || typeof this.forms.querySelectorAll("input[type=number]").values !== "number") ||
+                this.forms.querySelectorAll("input[type=date][value='']") || this.forms.querySelector("input[type=radio][value='']") ?
+                this.forms.input.classList.add('uk-text-danger') && this.forms.setAttribute("novalidate", "") :
+                this.forms.input.classList.add('uk-text-success') && this.forms.removeAttribute("novalidate")();
+        });
     }
-    // throws error if password does not match confirm password
+    // throws error if password does not match confirm password. light up the compare password feild and throw error/sucess messgaes
     passwordCheck() {
         if (this.password) {
             return bcrypt.compare(this.nameCategory['second-password'], this.password, (err, res) => {
@@ -57,79 +64,49 @@ class register {
     }
     // throws error if age is under 18
     ageCheck() {
-        if (18 > 2018 - this.dob.getFullYear()) {
-            return false;
-        }
+        return 18 > 2018 - this.dob.getFullYear() ? false : true;
     }
-    //throws error if email is already in db
+    //throws error if email is already in db and says this email already exists
     emailCheck() {
     }
-    //throws error if username is in db
+    //throws error if username is in db and says this username already exists
     userCheck() {
     }
-    // throw sucess everytime a field is filled 
-    success() {
-        this.nameCategory['fname'] === "" ? this.nameCategory['fname'].classList.add("uk-form-danger") : this.nameCategory['fname'].classList.add("uk-form-success");
-        this.nameCategory['lname'] === "" ? this.nameCategory['lname'].classList.add("uk-form-danger") : this.nameCategory['lname'].classList.add("uk-form-success");
-        this.dob === null ? this.nameCategory['dob'].classList.add("uk-form-danger") : this.nameCategory['dob'].classList.add("uk-form-success");
-        this.username === "" ? this.nameCategory['user'].classList.add('uk-form-danger') : this.nameCategory['user'].classList.add("uk-form-success");
-        this.email === "" ? this.nameCategory['email'].classList.add("uk-form-danger") : this.nameCategory['email'].classList.add("uk-form-success");
-        util_1.isNull(this.password) ? this.nameCategory['password'].classList.add("uk-form-danger") : this.nameCategory['password'].classList.add("uk-form-success");
-        this.country === "" ? this.familiar['country'].classList.add("uk-form-danger") : this.familiar['country'].classList.add("uk-form-success");
-        this.address === "" ? this.familiar['address'].classList.add("uk-form-danger") : this.familiar['address'].classList.add("uk-form-success");
-        this.state === "" ? this.familiar['state'].classList.add("uk-form-danger") : this.familiar['state'].classList.add("uk-form-success");
-        this.city === "" ? this.familiar['city'].classList.add("uk-form-danger") : this.familiar['city'].classList.add("uk-form-success");
-        util_1.isNull(this.zip) || isNaN(this.zip) ? this.familiar['zip'].classList.add("uk-form-danger") : this.familiar['zip'].classList.add("uk-form-success");
-        this.noc === "" ? this.card['noc'].classList.add("uk-form-danger") : this.card['noc'].classList.add("uk-form-success");
-        util_1.isNull(this.cardNo) && isNaN(this.cardNo) || isNaN(this.cardNo) ? this.card['cardNo'].classList.add("uk-form-danger") : this.card['cardNo'].classList.add("uk-form-success");
-        isNaN(this.ccv) || util_1.isNull(this.ccv) ? this.card['ccv'].classList.add("uk-form-danger") : this.card['ccv'].classList.add("uk-form-success");
-        this.cardExp === "" ? this.card['cardExp'].classList.add("uk-form-danger") : this.card['cardExp'].classList.add("uk-form-success");
-        this.billing === "" ? this.card['billing'].classList.add("uk-form-danger") : this.card['billing'].classList.add("uk-form-success");
-        util_1.isNull(this.userStyle) ? this.style.appendChild(this.style.createElement('p').classList.add('uk-text-danger').innerHTML = 'Please Select an option') : this.style.classList.add("uk-form-success");
-    }
-    //throw failure if feild has an error or is not filled
-    validate() {
-        this.fillCheck() ? document.querySelectorAll("form").setAttribute("novalidate") : document.querySelectorAll('form').setAttribute("validate");
+    fail() {
     }
     //autopopulate country
     Country() {
-        /*return document.getElementById("countries").appendChild(
-            `<datalist id="countries>
-                <option value="Albania">
-                <option value= "Algeria">
-                <option value= "Morrocco">
-                <option value= "China">
-                <option value= "Russia">
-                <option value= "United States">
-                <option value= "Ukraine">
-                <option value= "Nigeria">
-                <option value="Ivory Coast"
-            <datalist>`
-        );*/
-        const datalist = document.createElement('datalist').innerHTML = ` <option value="Albania">
-            <option value = "Algeria">
-            <option value= "Morrocco">
-            <option value= "China">
-            <option value= "Russia">
-            <option value= "United States">`;
-        return document.getElementById('countries').append(datalist);
+        let array = ['United States', 'North Korea', 'South Korea', 'Japan', 'England', 'Uzbekistan', 'Canada', 'Bolivia', 'Azerbaijan'];
+        const list = array.forEach(function (country) {
+            const list = document.createTextNode(country);
+            return document.createElement('option').appendChild(list);
+        });
+        const country = document.getElementById("countries").appendChild(document.createElement("datalist").appendChild(list));
+        return country;
+    }
+    validate() {
     }
     submit() {
         //does not submit if error persists(if any of the checks throws an error then do not submit. submit info otherwise)
         // compiles info into json
         // sends you to the user page.
+        const update = {
+            previousid: -1,
+            id: () => update.previousid += 1,
+        };
         const thisUser = {
-            name: this.name, dob: this.dob, country: this.country, address: this.address, email: this.email, noc: this.noc,
+            userNo: update.id(), name: this.name, dob: this.dob, country: this.country, address: this.address, email: this.email, noc: this.noc,
             cardNo: this.cardNo, ccv: this.ccv, cardExp: this.cardExp, phone: this.phone, username: this.username,
             password: this.password
         };
+        update.previousid = thisUser.userNo; // at the end of the day this will call from the database id
         let newUser = JSON.stringify(thisUser);
-        return fetch('user.html');
+        return fetch('../user.html');
     }
 }
 window.onload = () => {
     const implement = new register;
-    implement.Country();
-    implement.passwordCheck();
+    implement.Country;
+    implement.passwordCheck;
 };
 //# sourceMappingURL=reg.js.map

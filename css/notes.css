@@ -19,4 +19,63 @@ All this info can be found on w3schools
     placeholder
     required
     step = can be used with number, range, date, datetime-local, month, time and week
+
+
+
+
+    NODE NOTES
+
+* node's default event emitter is in the events library. You can edit this file as you please to add your own custom emitters
+
+    //Example of a quick custom made JS emitter
+
+function Emitter() {
+    this.events = {};
+}
+
+Emitter.prototype.on = function(type: Array, listener:any) { /// on is used to set the property and the eventlistener
+    this.events[type] = this.events[type] || [];        /// this sets the property of this.events to be an array called type
+    this.events[type].push(listener);  
+}
+
+Emitter.prototype.emit = function(type) { /// emits the result of the listener that is attached to the 'eventname'
+    if(this.events[type]) {
+        this.events[type].forEach(function(listener) {
+            listener();
+        });
+    }
+}
+
+
+i'm technically just making an object with an array that contains a list of functions that I 
+
+
+module.exports is oviously an object
+
+module.exports.greet = function() {};
+module.exports = "something";
+module.exports = 56 + 222;
+function test() {
+    console.log("This is a test");
+}
+module.exports = {
+    test: test
+}
+
+
+Example of using .cal and .apply 
+
+const human = {
+    name: 'James bond',
+    age: 52,
+    sentence: (*params*) => console.log(Mr. ${this.name} is ${this.age} years old) 
+}
+
+human.sentence() // spits out the string
+human.sentence.call({name: 'Becky bond', age:50}, param1,param2) spits out becky and the value of any other parameters you'll add
+human.sentence.apply({name: 'Becky bond', age:50}, [param1,param2]) spits out becky and the value of any other parameters you'll add but params must be added as an array
+
+
+
+
     */
