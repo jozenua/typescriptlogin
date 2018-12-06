@@ -37,7 +37,7 @@ class Employee {
 }
 let employee = new Employee('Joohnn');
 employee.greet();
-module.exports.employee = Employee;
+module.exports = Employee;
 let Try = () => 'response';
 console.log(Try());
 /* promises are used to cue callbacks
@@ -61,14 +61,14 @@ console.log(Try());
             |
             v
      function example<T>(input : T): T {
-        return input
+        return input                        this receives the type of whatever example is assigned to ore whatever variable it accepts
      }
 
      function example<subClass extends ParentClass>(input: subClass): subClass {
         return input;
      }
 
-     compiler options : --out(changes output file name), --watch(comes at the end of the outputfile name)
+     NODE: compiler options : --out(changes output file name), --watch(comes at the end of the outputfile name)
 
     *window.location.assign(loads a new document), window.location.href(returns what's in the address bar at a certain time), window.location.port(returns the port that your webpage is hosted on)
     * window.location.protocol(returns the web protocol of the page), window.location.pathname(returns pathname of the page)
@@ -77,7 +77,8 @@ console.log(Try());
     *
 
             */
-let myArryay = [1, 'string', true, null, 'another string', undefined];
+let myArray = [1, 'string', true, null, 'another string', undefined];
+console.log(myArray[3]);
 function testPromiseFunction(a, b) {
     return new Promise((resolve, reject) => {
         typeof !isNaN(a + b) ? resolve('this is valid') : reject(Error('This is invalid'));

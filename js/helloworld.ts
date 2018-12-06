@@ -46,7 +46,7 @@ class Employee {
 let employee = new Employee('Joohnn');
 employee.greet();
 
-module.exports.employee = Employee;
+module.exports = Employee;
 
 let Try = () => 'response';
 
@@ -90,7 +90,10 @@ console.log(Try());
             */
 
 
-let myArryay = [1,'string',true,null,'another string', undefined];
+let myArray = [1,'string',true,null,'another string', undefined];
+
+
+console.log(myArray[3]);
 
 function testPromiseFunction(a: number, b:number) {
     return new Promise((resolve,reject) => {

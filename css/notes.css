@@ -75,7 +75,71 @@ human.sentence() // spits out the string
 human.sentence.call({name: 'Becky bond', age:50}, param1,param2) spits out becky and the value of any other parameters you'll add
 human.sentence.apply({name: 'Becky bond', age:50}, [param1,param2]) spits out becky and the value of any other parameters you'll add but params must be added as an array
 
+Buffer Example 
+var buf = new Buffer('hello', 'utf8') utf8 is default encoding. The first parameter serves aas input but also sets the size of buf. Anything I put into 
+buf will replace what's already in there
+
+Buffer Array Example 
+
+Note: All buffers are quantifying data in bits
+var buffer = new ArrayBuffer(8); 8 bytes which is 64 bits
+var view = new Int32Array(buffer); this accept the content in buffer two characters at a time because it's using 32 bits to encode each character 
+view[0] = 5;
+view[1] = 10;
+view[2] = 38; this won't be added because the buffer is already full
+
+Callback function example 
+
+function greet(callback) {
+    callback();
+}
+
+let example = greet(function()
+ {      console.log('this is my callback')
+     })
 
 
 
-    */
+     using fs 
+     var fs = requrie('fs');
+     var greet = fs.readFileSync(__dirname + 'greet.txt', 'utf8');  
+     
+     STREAMS
+     var fs = require('fs');
+     var zlib = require('zlib');
+
+
+     var readable = fs.createReadStream(__dirname + '/greet.txt', {encoding: 'utf8'}, highWaterMark: 1024(bytes) * 32); the highWaterMark option sets a ceiling on the size of the chunk that's streamed 
+
+     var writable = fs.createWriteStream(__dirname + 'greetcopy.txt');
+
+     var compressed = fs.createWriteStream(_dirname + 'greet.txt.gz');
+
+     readable.on('data', function(chunk) {
+         console.log(chunk); if encoding isn't added, it prints out the buffer character coding
+         writable.write(chunk);
+     }                      
+
+     OR 
+
+     readable.pipe(writable); 
+
+     let gzip = zlib.createGzip(); 
+     
+     readable.pipe(gzip).pipe(compressed); gzip is both readable and writable. It's duplex so i'm reading from gzip and writing to compressed
+
+
+    *http parser is on github
+
+    HTTP server requests
+    var http = require('https') 
+
+    http.createServer(function(req,res) {
+        res.writeHead(200, {'Content-Type : 'text/htm});
+        var html = fs.readFileSync(__dirname + 'index.htm', 'utf8');
+        var message = 'Hello world...';
+        html = html.replace('{Message}', message);
+        res.end('html');
+    }).listen([port-number], '[address]') domain that is connected to that port     
+
+     */

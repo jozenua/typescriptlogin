@@ -69,11 +69,34 @@ cheers.on('greet', function (data) {
 })
 cheers.greet('Jesus');
 
-let worker = require('./js/helloworld').employee;
+let worker = require('./js/helloworld');
 
 let slave = new worker('Hebert');
 slave.greet();
 
+
+
+function sentence(callback) {
+    callback();
+}
+
+let example= new sentence(function () {
+    console.log('this is my callback');
+});
+
+
+const fs = require('fs');
+
+let test = fs.readFile(__dirname, 'utf8',function(err, data) {
+    if (err) {
+        throw Error('this code has not run')
+    }
+    else {
+        console.log(data);
+    }
+});
+
+console.log(test);
 
 
 
